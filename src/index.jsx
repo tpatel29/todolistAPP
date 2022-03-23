@@ -39,14 +39,23 @@ class App extends React.Component {
       this.setState({ error: error.message });
     }
   }
-  onFormChange = (view) => {
+    onFormChange = (view) => {
     this.setState({ view });
-  };
+    };
+    changeStatus = (value, ) => {
+        const {  posts } = this.state;
+        const arr = value.split(",");
+        console.log(posts[arr[0] -1]);
+        posts[arr[0] -1].column = arr[1];
+        console.log(posts[arr[0] -1]);
+
+        this.setState({posts: posts, view: "grid"} );
+    };
 
   onFormSubmit = (type, title ) => {
     const { posts } = this.state;
     posts.push({
-        "id": posts.length,
+        "id": posts.length + 1,
         "title": title,
         "type": type,
         "column": "todo"})
@@ -59,29 +68,27 @@ class App extends React.Component {
     //this.getNewPosts();
 
     console.log("This was rendered");
-    if (view == "grid") {
+    if (view === "grid") {
       return (
         <div>
           <h1 className={"Titleheader"}>TO DO LIST APP</h1>
           <Views onChangeView={this.onFormChange} view={view}/>
           <h1>Task Dashboard</h1>
-          <Table post={posts}></Table>
-
-
+          <Table changeStatus={this.changeStatus} post={posts}/>
         </div>
       );
     }
-    else if (view == "list") {
+    else if (view === "list") {
       return (
           <div>
             <h1 className={"Titleheader"}>TO DO LIST APP</h1>
             <Views onChangeView={this.onFormChange} view={view}/>
             <h1>Task List</h1>
-            <List post={posts}></List>
+            <List post={posts}/>
           </div>
       );
     }
-    else if (view == "addTask"){
+    else if (view === "addTask"){
       return (
           <div>
             <h1 className={"Titleheader"}>TO DO LIST APP</h1>

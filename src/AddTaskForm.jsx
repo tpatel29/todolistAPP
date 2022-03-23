@@ -9,14 +9,11 @@ class AddTaskForm extends React.Component {
         this.state = {
             title: "",
             type: "task",
-
-
         };
     }
 
     onFormWork = ( event ) => {
         event.preventDefault();
-
         const { onFormSubmit } = this.props;
         const { type, title  } = this.state;
         onFormSubmit(type, title);
