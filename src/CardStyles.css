@@ -1,0 +1,55 @@
+
+.Titleheader{
+    border-bottom: black 5px solid;
+}
+.card{
+    width: 80%;
+    border: black 2px solid;
+    background-color: white;
+    margin: 9px;
+    padding: 5px;
+}
+.table1 {
+    content: "";
+    width: 75%;
+    background-color: cadetblue;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.th{
+    font-size: 150%;
+    background: darkgrey;
+}
+.tr{
+    vertical-align: top;
+    horiz-align: center;
+    max-width: 25%;
+}
+.td{
+    background: darkgrey;
+    margin: 0 auto;
+    width: 25%;
+}
+.lightgray{
+    background-color: lightgray;
+}
+/*td:nth-child(odd) {*/
+/*    background-color: lightgray;*/
+/*!*}*!*/
+/*th:nth-child(odd) {*/
+/*    background-color: lightgray;*/
+/*}*/
+ul{
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+}
+button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 120%;
+}
+
