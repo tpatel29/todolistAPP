@@ -39,6 +39,7 @@ class App extends React.Component {
       this.setState({ error: error.message });
     }
   }
+
     onFormChange = (view) => {
     this.setState({ view });
     };
@@ -68,6 +69,7 @@ class App extends React.Component {
     //this.getNewPosts();
 
     console.log("This was rendered");
+
     if (view === "grid") {
       return (
         <div>

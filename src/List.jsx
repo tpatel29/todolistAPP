@@ -13,22 +13,31 @@ class List extends React.Component {
             type: props.type,
         };
     }
-    onChangeFunction = ( event ) => {
-        event.preventDefault();
-    }
     render() {
-        const {post} = this.state;
+        const { status, sort, type, post} = this.state;
+        post.sort(function (a, b) {
+            if(sort == "type") {
+                return a.type.localeCompare(b.type);
+            }
+            else if(sort == "status"){
+                return a.column.localeCompare(b.column);
+            }
+            else {
+                return a.column.localeCompare(b.column);
+            }
+        });
+
         return (
             <div>
                 <div>
                     <label htmlFor={"sort"}>Sort</label>
-                    <select onChange={this.onChangeFunction} name="sort">
+                    <select onChange={(e => {this.setState({sort: e.target.value})})} name="sort">
                         <option value="title">Title</option>
                         <option value="status">Status</option>
                         <option value="type">Type</option>
                     </select>
                     <label htmlFor={"status"}>Status</label>
-                    <select onChange={this.onChangeFunction} name="status">
+                    <select onChange={(e => {this.setState({status: e.target.value})})} name="status">
                         <option value="select">Select Status</option>
                         <option value="todo">To Do</option>
                         <option value="in-progress">In Progress</option>
@@ -36,7 +45,8 @@ class List extends React.Component {
                         <option value="done">Done</option>
                     </select>
                     <label htmlFor={"type"}>Type</label>
-                    <select onChange={this.onChangeFunction} name="type">
+                    <select onChange={(e => {this.setState({type: e.target.value})})} name="type">
+                        <option value="select">Select Task</option>
                         <option value="task">Task</option>
                         <option value="feature">Feature</option>
                         <option value="bug">Bug</option>
@@ -53,13 +63,15 @@ class List extends React.Component {
                     <tbody>
 
                     {post.map((data, key) => {
-                        return (
-                            <tr className={"listRow"} key={key}>
-                                <td className={"listCol"}> {data.title}</td>
-                                <td className={"listCol"}> {data.column}</td>
-                                <td className={"listCol"}> {data.type}</td>
-                            </tr>
-                        );
+                        if((status == data.column || status == "select") && (type == data.type || type == "select") ){
+                            return (
+                                <tr className={"listRow"} key={key}>
+                                    <td className={"listCol"}> {data.title}</td>
+                                    <td className={"listCol"}> {data.column}</td>
+                                    <td className={"listCol"}> {data.type}</td>
+                                </tr>
+                            );
+                        }
                     })}
                     </tbody>
                 </table>
