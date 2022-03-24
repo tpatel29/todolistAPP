@@ -22,8 +22,8 @@ class List extends React.Component {
             else if(sort == "status"){
                 return a.column.localeCompare(b.column);
             }
-            else {
-                return a.column.localeCompare(b.column);
+            else if(sort == "title"){
+                return a.title.localeCompare(b.title);
             }
         });
 
