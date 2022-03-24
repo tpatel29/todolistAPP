@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const openPosts = axios.create({
-  baseURL: 'http://my-json-server.typicode.com/tpatel29/DatabaseFile/posts',
+  baseURL: 'https://my-json-server.typicode.com/tpatel29/DatabaseFile/posts',
 });
 
 const getPosts = async () => {
