@@ -3,11 +3,12 @@
     border-bottom: black 5px solid;
 }
 .card{
-    width: 80%;
+    max-width: 80%;
     border: black 2px solid;
     background-color: white;
     margin: 9px;
     padding: 5px;
+    max-width: 80%;
 }
 .table1 {
     content: "";
@@ -54,4 +55,28 @@ button{
     text-decoration: underline;
     color: blue;
 }
+@media only screen and (max-width: 900px){
+    table{
+        font-size: 90%;
+    }
+}
+@media only screen and (max-width: 750px){
+    body{
+        font-size: 70%;
+    }
+    .table1{
+        width:85%;
+    }
+}
+@media only screen and (max-width: 600px){
+    body{
+        font-size: 40%;
+    }
+    .table1{
+        width:95%;
+    }
+}
+
+
+
 

@@ -15,6 +15,7 @@ class List extends React.Component {
     }
     render() {
         const { status, sort, type, post} = this.state;
+        let {blank} = false;
         post.sort(function (a, b) {
             if(sort == "type") {
                 return a.type.localeCompare(b.type);
@@ -65,7 +66,9 @@ class List extends React.Component {
                     {post.map((data, key) => {
                         if((status == data.column || status == "select") && (type == data.type || type == "select") ){
                             return (
+
                                 <tr className={"listRow"} key={key}>
+                                    {blank? (blank = true):(blank = true)}
                                     <td className={"listCol"}> {data.title}</td>
                                     <td className={"listCol"}> {data.column}</td>
                                     <td className={"listCol"}> {data.type}</td>
@@ -75,6 +78,7 @@ class List extends React.Component {
                     })}
                     </tbody>
                 </table>
+                {blank? (""):(<h1 className={"center"}>There are no tasks with this filter</h1>)}
             </div>
 
 

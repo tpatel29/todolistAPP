@@ -25,11 +25,8 @@ class AddTaskForm extends React.Component {
         return (
             <div>
                 <form onSubmit={this.onFormWork}>
-
                     <label htmlFor={"title"}>Title</label>
                     <input defaultValue={title} onChange={(e) => this.setState({ title: e.target.value })} type={"text"}/>
-
-
                     <label htmlFor={"type"}>Type</label>
                     <select defaultValue={type} onChange={(e) => this.setState({ type: e.target.value })} name="type">
                         <option value="task">Task</option>
